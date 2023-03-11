@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="596.0" prefWidth="889.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SceneController">
+   <children>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: LINEN;">
+         <children>
+            <AnchorPane layoutY="-8.0" prefHeight="604.0" prefWidth="370.0" style="-fx-background-color: DARKSLATEGRAY;">
+               <children>
+                  <Label layoutX="46.0" layoutY="427.0" prefHeight="98.0" prefWidth="312.0" text="Enter Your Details " textFill="DARKSALMON">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="68.0" layoutY="70.0" prefHeight="69.0" prefWidth="196.0" text="Hello , Friend !" textFill="DARKSALMON">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="304.0" fitWidth="253.0" layoutX="41.0" layoutY="152.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@../../../../Downloads/gift_orange.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="63.0" layoutY="454.0" prefHeight="98.0" prefWidth="312.0" text="and Enjoy The Journey ..." textFill="DARKSALMON">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <Label layoutX="528.0" layoutY="211.0" text="Or Use Email For Registration" textFill="DARKSALMON">
+               <font>
+                  <Font name="DejaVu Sans Condensed Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="546.0" layoutY="73.0" text="Create Account" textFill="LIGHTSALMON">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <TextField layoutX="503.0" layoutY="267.0" prefHeight="26.0" prefWidth="268.0" promptText="Username " />
+            <PasswordField layoutX="506.0" layoutY="328.0" prefHeight="26.0" prefWidth="268.0" promptText="password" />
+            <MaskField mask="+7 (DDD) DDD-DDDD" />
+            <MaskField mask="AA  DDD AAA" placeholder="__ ### ___" />
+            <TextField layoutX="507.0" layoutY="378.0" prefHeight="26.0" prefWidth="268.0" promptText="Email" />
+            <TextField layoutX="506.0" layoutY="438.0" prefHeight="26.0" prefWidth="274.0" promptText="Phone" />
+            <Button layoutX="610.0" layoutY="514.0" mnemonicParsing="false" onAction="#switchToScene2" style="-fx-background-color: DARKSLATEGRAY;" text="SIGN UP" textFill="LIGHTSALMON" />
+            <ImageView fitHeight="98.0" fitWidth="110.0" layoutX="566.0" layoutY="103.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../../../../Downloads/icon1.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

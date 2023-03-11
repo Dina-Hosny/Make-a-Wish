@@ -20,13 +20,23 @@ public class Client extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = new FXMLDocumentBase();
         
-        Scene scene = new Scene(root);
+        //Home
         
-        stage.setScene(scene);
+        FXMLLoader homeLoader = new FXMLLoader(getClass().getResource("Home.fxml"));
+        
+        Parent homeRoot = homeLoader.load();
+        
+        Scene homeScene = new Scene(homeRoot);
+        
+        stage = new Stage();
+        
+        stage.setScene(homeScene);
         stage.show();
        
+       
+        
+        
     }
 
     /**

@@ -11,7 +11,7 @@ import java.net.SocketException;
 import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-//import com.mysql.cj.jdbc.Driver;
+import com.mysql.cj.jdbc.Driver;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
@@ -27,11 +27,11 @@ public class Server_1 {
         userAndPass.put("root", "root");
         try {
             serverSocket = new ServerSocket(5005);
-            //database =new DataAccessLayer("jdbc:mysql://localhost:3306/iwish", "root", "Dina123");
-            database =new DataAccessLayer("jdbc:derby://localhost:1527/Wishlist", "root", "root");
-            rs = database.conn.createStatement().executeQuery("SELECT username, password FROM users");
+            database =new DataAccessLayer("jdbc:mysql://localhost:3306/iwish", "root", "Dina123");
+            //database =new DataAccessLayer("jdbc:derby://localhost:1527/Wishlist", "root", "Dina123");
+            rs = database.conn.createStatement().executeQuery("SELECT user_name, password FROM users");
                 while (rs.next()) {
-                String username = rs.getString("username");
+                String username = rs.getString("user_name");
                 String password = rs.getString("password");
                 userAndPass.put(username, password);
             }
