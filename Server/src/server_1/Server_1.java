@@ -1,5 +1,6 @@
 package server_1;
 import OTD.OTD;
+import OTD.OTD_Login;
 import OTD.OTD_REG;
 import OTD.OTD_Status;
 import java.io.IOException;
@@ -11,29 +12,39 @@ import java.net.SocketException;
 import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import com.mysql.cj.jdbc.Driver;
+//import com.mysql.cj.jdbc.Driver;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashSet;
+import java.util.Set;
 import javax.swing.JOptionPane;
 
 public class Server_1 {
     ServerSocket serverSocket;
     DataAccessLayer database;
     static HashMap<String,String> userAndPass;
+    static HashSet<String> emailSet;
+     
     ResultSet rs;
+   
     
     public Server_1()  {
         userAndPass = new HashMap<>();
+        emailSet = new HashSet<>();
         userAndPass.put("root", "root");
+        
         try {
             serverSocket = new ServerSocket(5005);
-            database =new DataAccessLayer("jdbc:mysql://localhost:3306/iwish", "root", "Dina123");
-            //database =new DataAccessLayer("jdbc:derby://localhost:1527/Wishlist", "root", "Dina123");
-            rs = database.conn.createStatement().executeQuery("SELECT user_name, password FROM users");
+            //database =new DataAccessLayer("jdbc:mysql://localhost:3306/iwish", "root", "Dina123");
+            database =new DataAccessLayer("jdbc:mysql://127.0.0.1:3306/iwish", "iwish", "iwish"); 
+            //database =new DataAccessLayer("jdbc:derby://localhost:1527/Wishlist", "root", "root");
+            rs = database.conn.createStatement().executeQuery("SELECT username, password,email FROM users");
                 while (rs.next()) {
-                String username = rs.getString("user_name");
+                String username = rs.getString("username");
                 String password = rs.getString("password");
+                String Email = rs.getString("email");
                 userAndPass.put(username, password);
+                emailSet.add(Email);
             }
             
              while(true) 
@@ -91,12 +102,24 @@ class Client extends Thread
                     if(Server_1.userAndPass.containsKey(otdReg.getUsername()) ){
                         System.out.println("Username is dublicated");
                         oos.writeObject(new OTD_Status(1,false,"Username is dublicated"));
-                    }else{
+                    }else if (Server_1.emailSet.contains(otdReg.getEmail())) {
+                        System.out.println("Email is dublicated");
+                        oos.writeObject(new OTD_Status(1,false,"email is dublicated"));
+                    }
+                    else{
                         if(database.insert(otdReg )){
                             Server_1.userAndPass.put(otdReg.getUsername(), otdReg.getPassword());
                             System.out.println("Username and password is added");
                             oos.writeObject(new OTD_Status(1,true,"Member is succsfully register"));
                         }}
+        }else if(otd !=null && DataAccessLayer.operation(otd)==2) {
+            OTD_Login otdLogin = (OTD_Login) otd;
+            if(userAndPass.get(otdLogin.getUsername()).equals(otdLogin.getPassword())){
+                oos.writeObject(new OTD_Status(2,true,"LoginDone"));
+
+            }else{
+                oos.writeObject(new OTD_Status(2,false,"LoginDenied"));
+            }
         }
 
                 else {

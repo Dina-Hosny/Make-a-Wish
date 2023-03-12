@@ -10,11 +10,11 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="596.0" prefWidth="889.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SceneController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="596.0" prefWidth="889.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.RegistrationController">
    <children>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: LINEN;">
          <children>
-            <AnchorPane layoutY="-8.0" prefHeight="604.0" prefWidth="370.0" style="-fx-background-color: DARKSLATEGRAY;">
+            <AnchorPane layoutX="-4.0" layoutY="-8.0" prefHeight="604.0" prefWidth="370.0" style="-fx-background-color: DARKSLATEGRAY;">
                <children>
                   <Label layoutX="46.0" layoutY="427.0" prefHeight="98.0" prefWidth="312.0" text="Enter Your Details " textFill="DARKSALMON">
                      <font>
@@ -28,7 +28,7 @@
                   </Label>
                   <ImageView fitHeight="304.0" fitWidth="253.0" layoutX="41.0" layoutY="152.0" pickOnBounds="true">
                      <image>
-                        <Image url="@../../../../Downloads/gift_orange.png" />
+                        <Image url="@gift-icon-png-10.png" />
                      </image>
                   </ImageView>
                   <Label layoutX="63.0" layoutY="454.0" prefHeight="98.0" prefWidth="312.0" text="and Enjoy The Journey ..." textFill="DARKSALMON">
@@ -48,16 +48,14 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <TextField layoutX="503.0" layoutY="267.0" prefHeight="26.0" prefWidth="268.0" promptText="Username " />
-            <PasswordField layoutX="506.0" layoutY="328.0" prefHeight="26.0" prefWidth="268.0" promptText="password" />
-            <MaskField mask="+7 (DDD) DDD-DDDD" />
-            <MaskField mask="AA  DDD AAA" placeholder="__ ### ___" />
-            <TextField layoutX="507.0" layoutY="378.0" prefHeight="26.0" prefWidth="268.0" promptText="Email" />
-            <TextField layoutX="506.0" layoutY="438.0" prefHeight="26.0" prefWidth="274.0" promptText="Phone" />
-            <Button layoutX="610.0" layoutY="514.0" mnemonicParsing="false" onAction="#switchToScene2" style="-fx-background-color: DARKSLATEGRAY;" text="SIGN UP" textFill="LIGHTSALMON" />
+            <TextField fx:id="username" layoutX="503.0" layoutY="267.0" prefHeight="26.0" prefWidth="268.0" promptText="Username " />
+            <PasswordField fx:id="password" layoutX="506.0" layoutY="328.0" prefHeight="26.0" prefWidth="268.0" promptText="password" />
+            <TextField fx:id="email" layoutX="507.0" layoutY="378.0" prefHeight="26.0" prefWidth="268.0" promptText="Email" />
+            <TextField fx:id="phone" layoutX="506.0" layoutY="438.0" prefHeight="26.0" prefWidth="274.0" promptText="Phone" />
+            <Button layoutX="610.0" layoutY="514.0" mnemonicParsing="false" onAction="#signUp" style="-fx-background-color: DARKSLATEGRAY;" text="SIGN UP" textFill="LIGHTSALMON" />
             <ImageView fitHeight="98.0" fitWidth="110.0" layoutX="566.0" layoutY="103.0" pickOnBounds="true">
                <image>
-                  <Image url="@../../../../Downloads/icon1.png" />
+                  <Image url="@icon1.png" />
                </image>
             </ImageView>
          </children>

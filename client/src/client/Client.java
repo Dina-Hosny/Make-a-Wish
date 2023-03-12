@@ -11,6 +11,11 @@ import javafx.scene.Parent;
 
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import client.HomeController;
+import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -18,32 +23,17 @@ import javafx.stage.Stage;
  */
 public class Client extends Application {
     
-    @Override
-    public void start(Stage stage) throws Exception {
-        
-        //Home
-        
-        FXMLLoader homeLoader = new FXMLLoader(getClass().getResource("Home.fxml"));
-        
+   @Override
+public void start(Stage stage)  {
+    try {
+        FXMLLoader homeLoader = new FXMLLoader(getClass().getResource("Home.fxml"));    
         Parent homeRoot = homeLoader.load();
-        
         Scene homeScene = new Scene(homeRoot);
-        
-        stage = new Stage();
-        
         stage.setScene(homeScene);
         stage.show();
-       
-       
-        
-        
-    }
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        launch(args);
-    }
-    
+   
+    }  catch (IOException ex) {
+           ex.printStackTrace();
+       }
+}
 }

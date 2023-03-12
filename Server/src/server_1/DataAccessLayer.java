@@ -13,7 +13,8 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import org.apache.derby.jdbc.ClientDriver;
+//import org.apache.derby.jdbc.ClientDriver;
+//import com.mysql.cj.jdbc.Driver;
 import server_1.Server_1;
 
 /**
@@ -24,7 +25,7 @@ public class DataAccessLayer {
     Connection conn;
     public DataAccessLayer(String URL,String User,String Password) {
         try {
-            DriverManager.registerDriver(new ClientDriver() );
+            //DriverManager.registerDriver(new ClientDriver() );
             
              conn=DriverManager.getConnection(URL,User,Password);
              conn.setAutoCommit( true );
@@ -43,10 +44,11 @@ public class DataAccessLayer {
 }
     public boolean insert(OTD_REG otd){
         try {
-            PreparedStatement pst = conn.prepareStatement("insert into users values(?,?,?)");
+            PreparedStatement pst = conn.prepareStatement("insert into users values(?,?,?,?)");
             pst.setString(1, otd.getUsername());
             pst.setString(2, otd.getPassword());
-            pst.setString(3, otd.getfName());
+            pst.setString(3, otd.getEmail());
+            pst.setString(4, otd.getPhone());
             pst.executeUpdate();
             return true;
 

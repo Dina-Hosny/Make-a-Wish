@@ -1,61 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="479.0" prefWidth="739.0" style="-fx-background-color: LINEN;" type="AnchorPane" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SceneController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="479.0" prefWidth="739.0" style="-fx-background-color: LINEN;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.HomeController">
    <children>
       <AnchorPane prefHeight="200.0" prefWidth="200.0">
          <children>
-            <ImageView accessibleRole="INCREMENT_BUTTON" fitHeight="485.0" fitWidth="745.0" layoutX="-5.0" layoutY="-2.0" onDragDetected="#switchToScene2" pickOnBounds="true">
+            <ImageView accessibleRole="INCREMENT_BUTTON" fitHeight="485.0" fitWidth="745.0" layoutX="-5.0" layoutY="-2.0" pickOnBounds="true">
                <image>
-                  <Image url="@../../../../Downloads/christmas-novena-prayer.jpg" />
+                  <Image url="@christmas-novena-prayer.jpg" />
                </image>
             </ImageView>
-            <MenuBar blendMode="LIGHTEN" prefHeight="24.0" prefWidth="739.0" style="-fx-border-color: LINEN; -fx-background-color: BISQUE;" AnchorPane.bottomAnchor="459.0">
-              <menus>
-                <Menu text="WishList">
-                  <items>
-                    <MenuItem mnemonicParsing="false" text="Wishes" />
-                        <MenuItem mnemonicParsing="false" text="Collected" />
-                  </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Freinds">
-                  <items>
-                    <MenuItem mnemonicParsing="false" text="Pending" />
-                        <MenuItem mnemonicParsing="false" text="Freinds" />
-                  </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Notifications">
-                  <items>
-                    <MenuItem mnemonicParsing="false" text="Pendiing" />
-                        <MenuItem mnemonicParsing="false" text="Pendiing" />
-                  </items>
-                </Menu>
-                  <Menu text="Transfer">
-                     <items>
-                        <MenuItem mnemonicParsing="false" text="Close" />
-                     </items>
-                  </Menu>
-                  <Menu text="Help">
-                     <items>
-                        <MenuItem mnemonicParsing="false" text="About" />
-                     </items>
-                  </Menu>
-              </menus>
-            </MenuBar>
-            <Button layoutX="374.0" layoutY="376.0" mnemonicParsing="false" onAction="#switchToScene2" prefHeight="42.0" prefWidth="160.0" style="-fx-region-background: LINEN;" text="Register" textFill="DARKSALMON">
+            <Button defaultButton="true" layoutX="374.0" layoutY="376.0" mnemonicParsing="false" onAction="#switchToRegister" prefHeight="42.0" prefWidth="160.0" style="-fx-region-background: LINEN;" text="Register" textFill="DARKSALMON">
                <font>
                   <Font name="FreeMono Bold Oblique" size="24.0" />
                </font>
             </Button>
-            <Button layoutX="375.0" layoutY="431.0" mnemonicParsing="false" onAction="#switchToScene1" prefHeight="42.0" prefWidth="160.0" style="-fx-region-background: LINEN;" text="Login" textFill="DARKSALMON">
+            <Button layoutX="375.0" layoutY="431.0" mnemonicParsing="false" onAction="#switchToLogin" prefHeight="42.0" prefWidth="160.0" style="-fx-region-background: LINEN;" text="Login" textFill="DARKSALMON">
                <font>
                   <Font name="FreeMono Bold Oblique" size="24.0" />
                </font>
@@ -63,4 +28,4 @@
          </children>
       </AnchorPane>
    </children>
-</fx:root>
+</AnchorPane>

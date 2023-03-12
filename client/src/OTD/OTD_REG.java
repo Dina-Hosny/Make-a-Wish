@@ -16,13 +16,15 @@ public class OTD_REG extends OTD  implements Serializable  {
     String username;
     String password;
     String fName;
+    String email;
+    String phone;
 
-    public OTD_REG(int Operation,String username, String password, String fName) {
-        super(Operation);
+    public OTD_REG( int id,String username, String password, String email, String phone) {
+        super(id);
         this.username = username;
         this.password = password;
-        this.fName = fName;
-        
+        this.email = email;
+        this.phone = phone;
     }
 
     public String getUsername() {
@@ -48,6 +50,26 @@ public class OTD_REG extends OTD  implements Serializable  {
     public void setfName(String fName) {
         this.fName = fName;
     }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+   
+
+ 
             
     
     

@@ -11,20 +11,15 @@ import java.io.Serializable;
  *
  * @author 20101
  */
-public class OTD_REG extends OTD  implements Serializable  {
+public class OTD_Login extends OTD  implements Serializable  {
     
     String username;
     String password;
-    String fName;
-    String email;
-    String phone;
 
-    public OTD_REG( int id,String username, String password, String email, String phone) {
+    public OTD_Login(int id,String username, String password) {
         super(id);
         this.username = username;
         this.password = password;
-        this.email = email;
-        this.phone = phone;
     }
 
     public String getUsername() {
@@ -42,31 +37,9 @@ public class OTD_REG extends OTD  implements Serializable  {
     public void setPassword(String password) {
         this.password = password;
     }
+    
 
-    public String getfName() {
-        return fName;
-    }
-
-    public void setfName(String fName) {
-        this.fName = fName;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
+   
    
 
  
