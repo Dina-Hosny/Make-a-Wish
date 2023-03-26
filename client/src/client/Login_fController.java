@@ -15,15 +15,18 @@ import java.net.SocketException;
 import java.net.URL;
 import java.net.UnknownHostException;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+import javax.swing.JOptionPane;
+import model.UserData;
 
 /**
  *
@@ -35,45 +38,23 @@ public class Login_fController implements Initializable {
         ObjectInputStream ois;
         @Override
     public void initialize(URL url, ResourceBundle rb) {
-    try{
-        s = new Socket("127.0.0.1",5005);
-        oos = new ObjectOutputStream(s.getOutputStream());
-        ois = new ObjectInputStream(s.getInputStream());
-        }
-        catch (SocketException e) {
+        try {
+            s = new Socket("127.0.0.1",5005);
+            oos = new ObjectOutputStream(s.getOutputStream());
+            ois = new ObjectInputStream(s.getInputStream());
+        } catch (SocketException e) {
             
-            Platform.runLater(new Runnable(){
-                        @Override
-                        public void run(){
-                            Alert errorAlert = new Alert(Alert.AlertType.ERROR);
-                            errorAlert.setHeaderText("Coonection refused");
-                            errorAlert.setContentText("Connection is refused,try to reconnect with Reconnect Button");
-                            errorAlert.showAndWait();
-                         
-                        }});
+        JOptionPane.showMessageDialog(null,"Faild to connect with the server" +"\n"+"Error Message: "+e.getMessage());
+
               
             }
- 
-            // Catch block 3
-            catch (UnknownHostException e) {
-                Platform.runLater(new Runnable(){
-                        @Override
-                        public void run(){
-                            Alert errorAlert = new Alert(Alert.AlertType.ERROR);
-                            errorAlert.setHeaderText("Unknown Host");
-                            errorAlert.setContentText("Please make sure your host address is right and open the application again");
-                            errorAlert.showAndWait();
-                            Platform.exit();
-                           
-                            
-                        }});
+        catch (UnknownHostException e) {
+                JOptionPane.showMessageDialog(null,"UnknownHost" +"\n"+"Error Message: "+e.getMessage());
+
             }
- 
-            // Catch block 4
-            catch (IOException e) {
-                e.printStackTrace();
-            }
-        // TODO
+        catch (IOException ex) {
+                JOptionPane.showMessageDialog(null,"Faild to connect with the server" +"\n"+"Error Message: "+ex.getMessage());
+        }
     }
     
     
@@ -85,22 +66,41 @@ public class Login_fController implements Initializable {
     @FXML
     private void login(ActionEvent event) {
         if (password.getText().isEmpty() || username.getText().isEmpty()){
-            System.out.println("Please make sure that all fields is typed");
-        }else{
+            JOptionPane.showMessageDialog(null,"Please make sure that all fields is filled");
+            
+            
+        }
+        
+        
+        
+        else{
                         OTD_Login S = new OTD_Login(2,username.getText().toLowerCase(),password.getText());
                         try {
                 OTD x = (OTD) S;
                 oos.writeObject(x);
                 OTD_Status status =(OTD_Status) ois.readObject();
                 if(status.isStatus()){
-                    System.out.println(status.getMessage());
+                     JOptionPane.showMessageDialog(null,status.getMessage());
+          
+                    UserData.getInstance().setUsername(username.getText().toLowerCase());
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("HomePage.fxml"));
+                    Parent table = loader.load();
+                    
+
+                    HomePageController homecontroller = loader.getController();
+                    //homecontroller.setData("jane_smith");
+                    Scene scene =new Scene(table);
+                    Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+                    window.setScene(scene);
+                    window.show();
                     
                 }else{
-                    System.out.println(status.getMessage());
+                    JOptionPane.showMessageDialog(null,status.getMessage());
                 }
                 
             } catch (IOException | ClassNotFoundException ex) {
-                Logger.getLogger(Login_fController.class.getName()).log(Level.SEVERE, null, ex);
+                ex.printStackTrace();
+            JOptionPane.showMessageDialog(null,"Faild to connect with the client" +"\n"+"Error Message: "+ex.getMessage());
             }
 
                     }

@@ -30,6 +30,8 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javax.swing.JOptionPane;
+import model.UserData;
 
 /**
  * FXML Controller class
@@ -48,67 +50,74 @@ public class RegistrationController implements Initializable {
     private TextField email;
     @FXML
     private TextField phone;
+    @FXML
+    private TextField balance;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        try{
-        s = new Socket("127.0.0.1",5005);
-        oos = new ObjectOutputStream(s.getOutputStream());
-        ois = new ObjectInputStream(s.getInputStream());
-        }
-        catch (SocketException e) {
+        try {
+            s = new Socket("127.0.0.1",5005);
+            oos = new ObjectOutputStream(s.getOutputStream());
+            ois = new ObjectInputStream(s.getInputStream());
+        } catch (SocketException e) {
             
-            Platform.runLater(new Runnable(){
-                        @Override
-                        public void run(){
-                            Alert errorAlert = new Alert(Alert.AlertType.ERROR);
-                            errorAlert.setHeaderText("Coonection refused");
-                            errorAlert.setContentText("Connection is refused,try to reconnect with Reconnect Button");
-                            errorAlert.showAndWait();
-                         
-                        }});
+        JOptionPane.showMessageDialog(null,"Faild to connect with the server" +"\n"+"Error Message: "+e.getMessage());
+
               
             }
- 
-            // Catch block 3
-            catch (UnknownHostException e) {
-                Platform.runLater(new Runnable(){
-                        @Override
-                        public void run(){
-                            Alert errorAlert = new Alert(Alert.AlertType.ERROR);
-                            errorAlert.setHeaderText("Unknown Host");
-                            errorAlert.setContentText("Please make sure your host address is right and open the application again");
-                            errorAlert.showAndWait();
-                            Platform.exit();
-                           
-                            
-                        }});
+        catch (UnknownHostException e) {
+                JOptionPane.showMessageDialog(null,"UnknownHost" +"\n"+"Error Message: "+e.getMessage());
+
             }
- 
-            // Catch block 4
-            catch (IOException e) {
-                e.printStackTrace();
-            }
-        // TODO
+        catch (IOException ex) {
+                JOptionPane.showMessageDialog(null,"Faild to connect with the server" +"\n"+"Error Message: "+ex.getMessage());
+        }
     }    
         // TODO
        
 
     @FXML
             public void signUp(ActionEvent event){
-        if (password.getText().isEmpty() ||username.getText().isEmpty() ||email.getText().isEmpty() ){
-            System.out.println("Please make sure that are filled all the fields");
-        }else{
-            OTD_REG S = new OTD_REG(1,username.getText().toLowerCase(),password.getText(),email.getText().toLowerCase(),phone.getText().toLowerCase());
+        // Regular expression pattern to validate email format
+// Regular expression pattern to validate email format
+String emailPattern = "^[\\w-\\.]+@[\\w\\.-]+\\.[a-zA-Z]{2,}$";
+// Regular expression pattern to validate password format (minimum 6 characters)
+String passwordPattern = "^.{6,}$";
+
+// Check if all fields are filled and email is in the correct format
+if (password.getText().isEmpty() || username.getText().isEmpty() || email.getText().isEmpty() || balance.getText().isEmpty() || !email.getText().matches(emailPattern)) {
+    JOptionPane.showMessageDialog(null, "Please make sure that all fields are filled and email is in the correct format.", "Input Validation Error", JOptionPane.ERROR_MESSAGE);
+    return;
+}
+
+// Check if balance is greater than zero
+else if (Integer.parseInt(balance.getText()) < 0) {
+    JOptionPane.showMessageDialog(null, "Balance must be greater than or equal zero.", "Input Validation Error", JOptionPane.ERROR_MESSAGE);
+    return;
+}
+
+// Check if password meets the required format
+else if (!password.getText().matches(passwordPattern)) {
+    JOptionPane.showMessageDialog(null, "Password must be at least 6 characters long.", "Input Validation Error", JOptionPane.ERROR_MESSAGE);
+    return;
+}
+
+// All validations passed, continue with the rest of the code
+
+
+// All validations passed, continue with the rest of the code
+
+        else{
+            OTD_REG S = new OTD_REG(1,username.getText().toLowerCase(),password.getText(),email.getText().toLowerCase(),phone.getText().toLowerCase(),Integer.parseInt(balance.getText()));
             try {
                 OTD x = (OTD) S;
                 oos.writeObject(x);
                 OTD_Status status =(OTD_Status) ois.readObject();
                 if(status.isStatus()){
-                    System.out.println(status.getMessage());
+                    JOptionPane.showMessageDialog(null,status.getMessage());
                     Parent table1 = FXMLLoader.load(getClass().getResource("login_f.fxml"));
                     Scene scene =new Scene(table1);
                     Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -116,18 +125,20 @@ public class RegistrationController implements Initializable {
                     window.show();
                     
                 }else{
-                    System.out.println(status.getMessage());
+                    
+                    JOptionPane.showMessageDialog(null,status.getMessage());
+                    
                 }
                 
-            }catch (RuntimeException e) {
-    e.printStackTrace();
-}
-            catch (IOException ex) {
-                ex.printStackTrace();
+            }
+             catch (IOException ex) {
+                //ex.printStackTrace();
+                JOptionPane.showMessageDialog(null,"Faild loading the scene" +"\n"+"Error Message: "+ex.getMessage());
             }
             // handle the exception
              catch (ClassNotFoundException ex) {
                 Logger.getLogger(RegistrationController.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(null,"Scene is not exist!" +"\n"+"Error Message: "+ex.getMessage());
             }
             
         }};

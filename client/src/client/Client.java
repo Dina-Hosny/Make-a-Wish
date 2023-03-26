@@ -11,11 +11,9 @@ import javafx.scene.Parent;
 
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import client.HomeController;
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import client.HomeController;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -33,7 +31,8 @@ public void start(Stage stage)  {
         stage.show();
    
     }  catch (IOException ex) {
-           ex.printStackTrace();
+     JOptionPane.showMessageDialog(null,"Faild to start the I WISH application" +"\n"+"Error Message: "+ex.getMessage());
+
        }
 }
 }
