@@ -7,7 +7,7 @@ i-Wish is a desktop application where the user adds friends, creates his wish li
 
 ## Project Details:
 
-### I Wish application is a client/server application in which the Client can:
+### Make a Wish application is a client/server application in which the Client can:
 
 1. Register/Sign-in
 2. Add/Remove Friend.
