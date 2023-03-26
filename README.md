@@ -1,9 +1,9 @@
-# I-Wish
+# Make a Wish
 A simple Wishlist java project application where the user adds friends, creates his wish list, checks his friends’ wish lists, and makes his friends happy by contributing to buying them items from their wish lists.
 
-## Project Description::
+## Project Description:
 
-i-Wish is a desktop application where the user adds friends, creates his wish list, checks his friends’ wish lists, and makes his friends happy by contributing to buying them items from their wish lists.
+Make a Wish is a desktop application where the user adds friends, creates his wish list, checks his friends’ wish lists, and makes his friends happy by contributing to buying them items from their wish lists.
 
 ## Project Details:
 
