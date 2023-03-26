@@ -50,6 +50,8 @@ Also, Make a Wish has a notification service to keep the users updated with all 
 6. JavaFX.
 7. Scene Builder.
 
+## Demo:
+
 ## Screenshots:
 
 ![1](https://user-images.githubusercontent.com/46838441/227806739-0294a099-723a-485e-bdb2-3e09ae10fb55.png)
