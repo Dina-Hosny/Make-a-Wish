@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="874.0" prefWidth="1280.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.Login_fController">
+   <children>
+      <ImageView fitHeight="999.0" fitWidth="1280.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@imgs/tumblr_ml66zsuZRg1s8hnhko1_500.gif" />
+         </image>
+      </ImageView>
+      <Pane layoutX="216.0" layoutY="400.0" opacity="0.18" prefHeight="193.0" prefWidth="849.0" style="-fx-background-color: F7EEFB;" />
+      <Label layoutX="368.0" layoutY="427.0" prefHeight="44.0" prefWidth="270.0" text="Enter Your Username" textFill="WHITE">
+         <effect>
+            <Glow />
+         </effect>
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <TextField fx:id="username" layoutX="633.0" layoutY="428.0" promptText="Username">
+         <font>
+            <Font size="20.0" />
+         </font></TextField>
+      <PasswordField fx:id="password" layoutX="633.0" layoutY="514.0" promptText="password">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </PasswordField>
+      <Button defaultButton="true" layoutX="548.0" layoutY="655.0" mnemonicParsing="false" onAction="#login" prefWidth="184.0" style="-fx-background-color: EDDAF7;" stylesheets="@../css/buttuns.css" text="Login">
+         <font>
+            <Font size="20.0" />
+         </font></Button>
+      <Label layoutX="364.0" layoutY="512.0" prefHeight="44.0" prefWidth="270.0" text="Enter Your Password" textFill="WHITE">
+         <effect>
+            <Glow />
+         </effect>
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>

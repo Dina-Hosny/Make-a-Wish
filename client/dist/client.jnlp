@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="client.jnlp">
+  <information>
+    <title>client</title>
+    <vendor>20101</vendor>
+    <description>null</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="client.jar" size="24076697" download="eager" />
+    <jar href="lib\jackson-annotations-2.14.2.jar" size="76636" download="eager" />
+    <jar href="lib\jackson-core-2.14.2.jar" size="458834" download="eager" />
+    <jar href="lib\jackson-databind-2.14.2.jar" size="1616844" download="eager" />
+    <jar href="lib\mysql-connector-j-8.0.32.jar" size="2480823" download="eager" />
+  </resources>
+  <jfx:javafx-desc  width="800" height="600" main-class="client.Client"  name="client" />
+  <update check="always"/>
+</jnlp>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="870.0" prefWidth="1311.0" style="-fx-background-color: LINEN;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.HomeController">
+   <children>
+      <ImageView fitHeight="886.0" fitWidth="1567.0" layoutX="-254.0" layoutY="-8.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@imgs/Artboard%201.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="432.0" fitWidth="512.0" layoutX="849.0" layoutY="87.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@imgs/tumblr_mp4c2zGgiV1s5jjtzo1_500.gif" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="206.0" fitWidth="566.0" layoutX="373.0" layoutY="164.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@imgs/mkawish.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="470.0" fitWidth="563.0" layoutX="154.0" layoutY="372.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@imgs/tumblr_mp4c2zGgiV1s5jjtzo1_500.gif" />
+         </image>
+      </ImageView>
+      <Button defaultButton="true" layoutX="479.0" layoutY="450.0" mnemonicParsing="false" onAction="#switchToLogin" prefHeight="76.0" prefWidth="355.0" style="-fx-background-radius: 100; -fx-background-color: #FFFFFF;" stylesheets="@../css/buttuns.css" text="Login" textFill="#133766" textOverrun="CLIP" AnchorPane.topAnchor="450.0">
+         <font>
+            <Font name="Century Gothic" size="35.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </Button>
+      <Button defaultButton="true" layoutX="479.0" layoutY="552.0" mnemonicParsing="false" onAction="#switchToRegister" prefHeight="76.0" prefWidth="355.0" style="-fx-background-radius: 100; -fx-background-color: #FFFFFF;" stylesheets="@../css/buttuns.css" text="Register" textFill="#133766" textOverrun="CLIP">
+         <font>
+            <Font name="Century Gothic" size="35.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+   </children>
+</AnchorPane>

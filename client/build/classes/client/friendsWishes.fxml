@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="876.0" prefWidth="1320.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.FriendsWishesController">
+   <children>
+      <ImageView fitHeight="945.0" fitWidth="1557.0" layoutX="-237.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@imgs/desktop-wallpaper-full-moon-on-purple-night-background.jpg" />
+         </image>
+      </ImageView>
+      <TableView fx:id="wishListTable" layoutX="645.0" layoutY="137.0" prefHeight="575.0" prefWidth="655.0" stylesheets="@../css/tablev.css">
+         <columns>
+            <TableColumn fx:id="image" prefWidth="98.0" text="Image" />
+            <TableColumn fx:id="date" minWidth="0.0" prefWidth="123.0" text="Date of wishes" />
+            <TableColumn fx:id="item_name" minWidth="0.0" prefWidth="81.0" text="Item Name " />
+            <TableColumn fx:id="cat" prefWidth="156.0" text="Cateogry" />
+            <TableColumn fx:id="price" prefWidth="143.0" text="Price" />
+            <TableColumn fx:id="remained" prefWidth="82.0" text="Remained" />
+         </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <TableView fx:id="friendsView" layoutX="233.0" layoutY="137.0" prefHeight="575.0" prefWidth="390.0" stylesheets="@../css/tablev.css">
+         <columns>
+            <TableColumn fx:id="date2" prefWidth="83.0" text="Date" />
+            <TableColumn fx:id="username" prefWidth="109.0" text="Username" />
+            <TableColumn fx:id="email" prefWidth="324.0" text="Email" />
+         </columns>
+      </TableView>
+      <Pane fx:id="conPane2" layoutX="645.0" layoutY="718.0" opacity="0.54" prefHeight="127.0" prefWidth="655.0" style="-fx-background-color: #FFFFFF;" />
+      <Button fx:id="show" defaultButton="true" layoutX="337.0" layoutY="728.0" mnemonicParsing="false" onAction="#show" prefHeight="39.0" prefWidth="138.0" style="-fx-background-color: EDDAF7;" stylesheets="@../css/buttuns.css" text="Show">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="menuBtn" mnemonicParsing="false" prefHeight="52.0" prefWidth="70.0" style="-fx-background-color: transparent;">
+         <graphic>
+            <ImageView fitHeight="56.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@imgs/634-6342297_menu-bar-icon-white-clipart-png-download-3-removebg-preview.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="menuBackBtn" layoutX="5.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="70.0" style="-fx-background-color: transparent;">
+         <graphic>
+            <ImageView fitHeight="56.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@imgs/634-6342297_menu-bar-icon-white-clipart-png-download-3-removebg-preview.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Pane layoutX="233.0" layoutY="56.0" opacity="0.57" prefHeight="71.0" prefWidth="390.0" style="-fx-background-color: #FFFFFF;" />
+      <Label layoutX="247.0" layoutY="74.0" text="Choose a Friend to open his/her Wishlist">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Pane fx:id="contPane" layoutX="645.0" layoutY="56.0" opacity="0.51" prefHeight="71.0" prefWidth="655.0" style="-fx-background-color: #FFFFFF;" />
+      <Label fx:id="ContLBL" layoutX="711.0" layoutY="73.0" prefHeight="35.0" prefWidth="523.0" text="Choose an item that you want to contribute on it">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="amount" layoutX="893.0" layoutY="733.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextField>
+      <Button fx:id="senBTN" defaultButton="true" layoutX="919.0" layoutY="783.0" mnemonicParsing="false" onAction="#send" prefHeight="44.0" prefWidth="87.0" style="-fx-background-color: EDDAF7;" stylesheets="@../css/buttuns.css" text="Send">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="cancelBTN" defaultButton="true" layoutX="1023.0" layoutY="783.0" mnemonicParsing="false" style="-fx-background-color: EDDAF7;" stylesheets="@../css/buttuns.css" text="Cancel">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Pane fx:id="slider" layoutY="55.0" opacity="0.75" prefHeight="823.0" prefWidth="220.0" style="-fx-background-color: #F7EEFB;">
+         <children>
+            <ImageView fitHeight="129.0" fitWidth="127.0" layoutX="45.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@imgs/download-profile-user-round-purple-icon-symbol-png-11639594314uv1zwqsazt-removebg-preview.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="39.0" fitWidth="46.0" layoutX="5.0" layoutY="249.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@imgs/217853.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ccd3d8" height="44.0" layoutY="190.0" stroke="#ccd3d8" strokeType="INSIDE" width="220.0" />
+            <Label fx:id="usernameLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="-2.0" layoutY="191.0" prefHeight="39.0" prefWidth="220.0" text="username" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="balance" layoutX="51.0" layoutY="249.0" prefHeight="39.0" prefWidth="168.0" text="Balance">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Button fx:id="HomeBtn" defaultButton="true" layoutX="11.0" layoutY="345.0" mnemonicParsing="false" onAction="#Home" prefHeight="47.0" prefWidth="197.0" style="-fx-background-color: BD79E2;" stylesheets="@../css/buttuns.css" text="Home">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <Button fx:id="friend" defaultButton="true" layoutX="12.0" layoutY="462.0" mnemonicParsing="false" onAction="#friend" prefHeight="47.0" prefWidth="197.0" style="-fx-background-color: BD79E2;" stylesheets="@../css/buttuns.css" text="Friends List">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <Button fx:id="wishListFriends" defaultButton="true" layoutX="11.0" layoutY="578.0" mnemonicParsing="false" onAction="#wishListFriends" prefHeight="47.0" prefWidth="197.0" style="-fx-background-color: BD79E2;" stylesheets="@../css/buttuns.css" text="Friends Wishlist">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <Button fx:id="add1" defaultButton="true" layoutX="11.0" layoutY="403.0" mnemonicParsing="false" onAction="#add_item" prefHeight="47.0" prefWidth="197.0" style="-fx-background-color: BD79E2;" stylesheets="@../css/buttuns.css" text="Add Item">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <Button fx:id="logout" defaultButton="true" layoutX="11.0" layoutY="693.0" mnemonicParsing="false" onAction="#logOut" prefHeight="47.0" prefWidth="197.0" style="-fx-background-color: BD79E2;" stylesheets="@../css/buttuns.css" text="Log Out">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <Button fx:id="addfriend" defaultButton="true" layoutX="12.0" layoutY="520.0" mnemonicParsing="false" onAction="#addfriend" prefHeight="47.0" prefWidth="197.0" style="-fx-background-color: BD79E2;" stylesheets="@../css/buttuns.css" text="Add Friends">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <Button fx:id="chrgBalance" defaultButton="true" layoutX="10.0" layoutY="635.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="197.0" style="-fx-background-color: BD79E2;" stylesheets="@../css/buttuns.css" text="Recharge Balance">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <Button fx:id="about" defaultButton="true" layoutX="11.0" layoutY="767.0" mnemonicParsing="false" onAction="#about" prefHeight="47.0" prefWidth="197.0" style="-fx-background-color: BD79E2;" stylesheets="@../css/buttuns.css" text="About">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <Label fx:id="priceLBL" layoutX="690.0" layoutY="738.0" text="Enter the amount">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
