@@ -56,10 +56,6 @@ Also, Make a Wish has a notification service to keep the users updated with all 
 
 https://user-images.githubusercontent.com/46838441/228173990-2fff050d-f97f-4542-a2aa-151370fdbd70.mp4
 
-
-
-https://vimeo.com/811850389
-
 ## Screenshots:
 
 ![1](https://user-images.githubusercontent.com/46838441/227806739-0294a099-723a-485e-bdb2-3e09ae10fb55.png)
