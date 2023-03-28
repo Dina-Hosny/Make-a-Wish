@@ -45,10 +45,11 @@ Also, Make a Wish has a notification service to keep the users updated with all 
 1. Java 8.
 2. Apache NetBeans.
 3. MySQL Database.
-4. Object Type Definition (OTD).
+4. Object Type Definition (OTD). 
 5. JavaScript Object Notation (JSON).
 6. JavaFX.
 7. Scene Builder.
+8. CSS.
 
 ## Demo:
 
